@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+section{
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  font-display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-size: cover;
+  background-position: center;
+}
+
+.showcase
+{
+  position: absolute;
+  right: s0;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background:#111;
+  transition: 0.5s;
+  z-index: 2;
+}
+.showcase.active
+{
+  right: 300px;
+}
+
+.showcase video
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.overlay
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0px;
+  background: #03a9f4;
+  mix-blend-mode: overlay;
+
+  }
+
+header{
+  position: relative;
+  top: 0;
+  width: 100%;
+  padding: 30px 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+header .logo{
+  position: relative;
+  color: #000;
+  font-size: 28px;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+.logo{
+    position: relative;
+    z-index: 10;   
+}
+
+header .navigation a{
+  color: #fff;
+  text-decoration: none;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  padding: 2px 15px;
+  border-radius: 20px;
+  transition: 0.3;
+  transition-property: background; 
+}
+.navigation a{
+  position: relative;
+    z-index: 10; 
+}
+
+header .navigation a:not(:last-child){
+  margin-right: 30px;
+}
+
+header .navigation a:hover{
+  background: #000;
+}
+
+.content{
+  max-width: 750px;
+  margin: 200px 50px;
+}
+
+.content .info h2{
+  color:azure;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 55px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 2px;
+  line-height: 60px;
+  margin-bottom: 10px;
+}
+
+.info {
+  position: relative;
+  z-index: 10;
+}
+
+.content .info h2 span{
+  color:azure;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 50px;
+  font-weight: 400;
+}
+
+.content .info p{
+  color:bisque;
+  font-size: 17px;
+  margin: 20px 0;
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+
+.content .info-btn{
+  color: #fff;
+  background: #226A80;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: 0.3s;
+  transition-property:  background;
+}
+
+.content .info-btn:hover{
+  background: #226A80;
+}
+
+.media-icons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.media-icons a{
+  position: relative;
+  color: #111;
+  font-size: 25px;
+  transition: 0.3s;
+  transition-property: transform;
+}
+
+.media-icons a:not(:last-child){
+  margin-right: 50px;
+}
+
+.media.icons a:hover{
+  transform: scale(1.5);
+}
+
+label{
+  display: none;
+}
+
+#check{
+  z-index: 3;
+}
+
+/* responsive styles */
+
+@media(max-width: 960px){
+  header .navigation{
+    display: none;
+  }
+
+  label{
+    display: block;
+    font-size: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    transition-property: color;
+  }
+
+  label:hover{
+    color: #000;
+  }
+
+  label .close-btn{
+     display: none;
+     position: relative;
+     z-index: 2; 
+  }
+
+   #check:checked ~ header .navigation{
+    z-index: 20;
+    position: fixed;
+    background: #03a9f4;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+  }
+
+  #check:checked ~ header .navigation a{
+    font-weight: 700;
+    margin-right: 0;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+  }
+
+  #check:checked ~ header label .menu-btn{
+    display: none;
+  }
+ 
+  #check:checked ~ header label .close-btn{
+    z-index: 20;
+    color:#000;
+    display: block;
+    position: fixed;
+  }
+  
+  label .menu-btn{
+    position: absolute;
+  }
+  
+  .menu-btn{
+    position: relative;
+    color: bisque;
+    z-index: 100; 
+  }
+
+  header .logo{
+    position: absolute;
+    bottom: -50px;
+  }
+
+  .content .info h2{
+    font-size: 45px;
+    line-height: 50px;
+  }
+  .content .info h2 span{
+    font-size: 40px;
+    font-weight: 600;
+  }
+  .content .info p{
+      font-size: 14px;
+}
+}
+@media (max-width: 560px){
+  .content .info h2{
+    font-size: 35px;
+    line-height: 40px;
+  }
+  .content .info h2 span{
+    font-size: 30px;
+    font-weight: 600;
+  }
+   .content .info p{
+     font-size: 14px;
+} 
+}
